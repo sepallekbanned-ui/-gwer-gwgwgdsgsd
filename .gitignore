@@ -1,0 +1,12 @@
+# CMake generated build folders
+/build/
+/build-win/
+/package/
+
+# VS / IDE folders
+.vs/
+.vscode/
+
+# Local logs / caches
+CMakeUserPresets.json
+*.log

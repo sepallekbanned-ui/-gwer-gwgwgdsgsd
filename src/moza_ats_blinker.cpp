@@ -136,7 +136,7 @@ namespace {
 }
 
 extern "C" __declspec(dllexport)
-scs_result_t SCSAPIFUNC scs_telemetry_init(
+SCSAPI_RESULT scs_telemetry_init(
     const scs_u32_t version,
     const scs_telemetry_init_params_t* const params)
 {
@@ -181,7 +181,7 @@ scs_result_t SCSAPIFUNC scs_telemetry_init(
 }
 
 extern "C" __declspec(dllexport)
-void SCSAPIFUNC scs_telemetry_shutdown(void)
+SCSAPI_VOID scs_telemetry_shutdown(void)
 {
     g_running.store(false);
     if (g_worker.joinable())

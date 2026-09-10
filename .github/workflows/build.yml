@@ -1,1 +1,44 @@
+name: Build ATS MOZA Blinker
 
+on:
+  workflow_dispatch:
+  push:
+    branches: [ main ]
+
+jobs:
+  build:
+    runs-on: windows-2022
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Configure CMake
+        run: cmake -S . -B build -G "Visual Studio 17 2022" -A x64
+
+      - name: Build Release
+        run: cmake --build build --config Release --parallel
+
+      - name: Verify output
+        shell: pwsh
+        run: |
+          if (!(Test-Path "build/bin/moza_ats_blinker.dll")) { throw "moza_ats_blinker.dll was not produced." }
+          if (!(Test-Path "build/bin/MOZA_SDK.dll")) { throw "MOZA_SDK.dll was not produced." }
+
+      - name: Package plugin
+        shell: pwsh
+        run: |
+          New-Item -ItemType Directory -Force -Path package | Out-Null
+          Copy-Item "build/bin/moza_ats_blinker.dll" package/
+          Copy-Item "build/bin/MOZA_SDK.dll" package/
+          Copy-Item "README.md" package/
+          Compress-Archive -Path package/* -DestinationPath ATS_MOZA_Blinker_Windows_x64.zip -Force
+
+      - name: Upload compiled DLLs
+        uses: actions/upload-artifact@v4
+        with:
+          name: ATS_MOZA_Blinker_Windows_x64
+          path: |
+            build/bin/moza_ats_blinker.dll
+            build/bin/MOZA_SDK.dll
+            ATS_MOZA_Blinker_Windows_x64.zip

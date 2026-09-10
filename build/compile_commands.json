@@ -1,8 +1,0 @@
-[
-{
-  "directory": "/workspaces/-gwer-gwgwgdsgsd/build",
-  "command": "/usr/bin/c++ -DNOMINMAX -DWIN32_LEAN_AND_MEAN -Dmoza_ats_blinker_EXPORTS -I/workspaces/-gwer-gwgwgdsgsd/third_party/scs -I/workspaces/-gwer-gwgwgdsgsd/moza/include -g -fPIC -o CMakeFiles/moza_ats_blinker.dir/src/moza_ats_blinker.cpp.o -c /workspaces/-gwer-gwgwgdsgsd/src/moza_ats_blinker.cpp",
-  "file": "/workspaces/-gwer-gwgwgdsgsd/src/moza_ats_blinker.cpp",
-  "output": "CMakeFiles/moza_ats_blinker.dir/src/moza_ats_blinker.cpp.o"
-}
-]

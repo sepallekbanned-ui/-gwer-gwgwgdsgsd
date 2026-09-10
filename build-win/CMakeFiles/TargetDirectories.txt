@@ -1,3 +1,0 @@
-/workspaces/-gwer-gwgwgdsgsd/build-win/CMakeFiles/moza_ats_blinker.dir
-/workspaces/-gwer-gwgwgdsgsd/build-win/CMakeFiles/edit_cache.dir
-/workspaces/-gwer-gwgwgdsgsd/build-win/CMakeFiles/rebuild_cache.dir

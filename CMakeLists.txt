@@ -1,8 +1,16 @@
 cmake_minimum_required(VERSION 3.25)
 project(MOZA_ATS_Blinker LANGUAGES CXX)
 
-if(NOT WIN32 OR NOT CMAKE_SIZEOF_VOID_P EQUAL 8)
-    message(FATAL_ERROR "Build this project as Windows x64.")
+if(WIN32)
+    if(NOT CMAKE_SIZEOF_VOID_P EQUAL 8)
+        message(FATAL_ERROR "Build this project as Windows x64.")
+    endif()
+elseif(CMAKE_CXX_COMPILER_ID STREQUAL "MSVC" OR CMAKE_CXX_COMPILER_ID STREQUAL "Clang" AND WIN32)
+    message(FATAL_ERROR "This project must be built with a Windows x64 toolchain.")
+else()
+    message(WARNING
+        "This project is intended for Windows x64. The IDE can still configure it, but actual compilation requires a Windows x64 toolchain (Visual Studio or MinGW)."
+    )
 endif()
 
 add_library(moza_ats_blinker SHARED

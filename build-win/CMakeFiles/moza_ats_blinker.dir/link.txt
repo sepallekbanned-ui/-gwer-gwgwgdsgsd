@@ -1,0 +1,3 @@
+/usr/bin/cmake -E rm -f CMakeFiles/moza_ats_blinker.dir/objects.a
+/usr/bin/x86_64-w64-mingw32-ar qc CMakeFiles/moza_ats_blinker.dir/objects.a @CMakeFiles/moza_ats_blinker.dir/objects1.rsp
+/usr/bin/x86_64-w64-mingw32-g++ -D_WIN32 -D_WIN64 -shared -o bin/libmoza_ats_blinker.dll -Wl,--out-implib,lib/libmoza_ats_blinker.dll.a -Wl,--major-image-version,0,--minor-image-version,0 -Wl,--whole-archive CMakeFiles/moza_ats_blinker.dir/objects.a -Wl,--no-whole-archive @CMakeFiles/moza_ats_blinker.dir/linkLibs.rsp

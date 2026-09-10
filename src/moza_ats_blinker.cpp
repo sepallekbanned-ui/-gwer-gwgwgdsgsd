@@ -59,9 +59,9 @@ namespace {
         }
 
         auto err = moza::setSteeringWheelShiftIndicatorSwitch(2);
-        if (err != moza::NORMAL) return;
+        if (err != NORMAL) return;
         err = moza::setSteeringWheelShiftIndicatorMode(1);
-        if (err != moza::NORMAL) return;
+        if (err != NORMAL) return;
         moza::setSteeringWheelShiftIndicatorColor(c);
     }
 
@@ -149,14 +149,14 @@ scs_result_t SCSAPIFUNC scs_telemetry_init(
     g_log = p->common.log;
 
     // Snapshot the user's current MOZA indicator configuration.
-    scs_s32_t mozaErr = moza::NORMAL;
-    if (auto v = moza::getSteeringWheelShiftIndicatorMode(reinterpret_cast<moza::ERRORCODE&>(mozaErr)))
+    scs_s32_t mozaErr = NORMAL;
+    if (auto v = moza::getSteeringWheelShiftIndicatorMode(reinterpret_cast<ERRORCODE&>(mozaErr)))
         g_original_mode = v;
-    if (auto v = moza::getSteeringWheelShiftIndicatorSwitch(reinterpret_cast<moza::ERRORCODE&>(mozaErr)))
+    if (auto v = moza::getSteeringWheelShiftIndicatorSwitch(reinterpret_cast<ERRORCODE&>(mozaErr)))
         g_original_switch = v;
-    if (auto v = moza::getSteeringWheelShiftIndicatorColor(reinterpret_cast<moza::ERRORCODE&>(mozaErr)))
+    if (auto v = moza::getSteeringWheelShiftIndicatorColor(reinterpret_cast<ERRORCODE&>(mozaErr)))
         g_original_colors = *v;
-    if (auto v = moza::getSteeringWheelShiftIndicatorLightRpm(reinterpret_cast<moza::ERRORCODE&>(mozaErr)))
+    if (auto v = moza::getSteeringWheelShiftIndicatorLightRpm(reinterpret_cast<ERRORCODE&>(mozaErr)))
         g_original_rpm = *v;
 
     bool ok = true;

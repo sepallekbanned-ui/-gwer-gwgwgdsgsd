@@ -1,5 +1,6 @@
 #ifndef HID_STRUCT_H
 #define HID_STRUCT_H
+#include <cmath>
 #include <vector>
 
 

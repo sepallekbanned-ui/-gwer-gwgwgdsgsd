@@ -24,6 +24,9 @@ static constexpr scs_result_t SCS_RESULT_not_found=-4;
 static constexpr scs_result_t SCS_RESULT_unsupported_type=-5;
 static constexpr scs_result_t SCS_RESULT_not_now=-6;
 static constexpr scs_result_t SCS_RESULT_generic_error=-7;
+static constexpr scs_s32_t SCS_LOG_TYPE_message = 0;
+static constexpr scs_s32_t SCS_LOG_TYPE_warning = 1;
+static constexpr scs_s32_t SCS_LOG_TYPE_error = 2;
 static constexpr scs_u32_t SCS_U32_NIL=0xFFFFFFFFu;
 #define SCS_MAKE_VERSION(major,minor) (((major)<<16)|(minor))
 #define SCS_TELEMETRY_VERSION_1_00 SCS_MAKE_VERSION(1,0)

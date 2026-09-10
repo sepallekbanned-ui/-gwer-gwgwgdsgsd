@@ -1,0 +1,1 @@
+/usr/bin/c++ -fPIC -g -shared -Wl,-soname,libmoza_ats_blinker.so -o bin/libmoza_ats_blinker.so CMakeFiles/moza_ats_blinker.dir/src/moza_ats_blinker.cpp.o  /workspaces/-gwer-gwgwgdsgsd/moza/MOZA_SDK.lib 

@@ -135,8 +135,7 @@ namespace {
     }
 }
 
-extern "C" __declspec(dllexport)
-SCSAPI_RESULT scs_telemetry_init(
+extern "C" SCSAPI_RESULT scs_telemetry_init(
     const scs_u32_t version,
     const scs_telemetry_init_params_t* const params)
 {
@@ -180,8 +179,7 @@ SCSAPI_RESULT scs_telemetry_init(
     return SCS_RESULT_ok;
 }
 
-extern "C" __declspec(dllexport)
-SCSAPI_VOID scs_telemetry_shutdown(void)
+extern "C" SCSAPI_VOID scs_telemetry_shutdown(void)
 {
     g_running.store(false);
     if (g_worker.joinable())

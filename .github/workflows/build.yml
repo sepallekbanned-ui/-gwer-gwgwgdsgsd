@@ -22,15 +22,17 @@ jobs:
       - name: Verify output
         shell: pwsh
         run: |
-          if (!(Test-Path "build/bin/moza_ats_blinker.dll")) { throw "moza_ats_blinker.dll was not produced." }
-          if (!(Test-Path "build/bin/MOZA_SDK.dll")) { throw "MOZA_SDK.dll was not produced." }
+          $dllDir = "build/bin/Release"
+          if (!(Test-Path "$dllDir/moza_ats_blinker.dll")) { throw "moza_ats_blinker.dll was not produced in $dllDir." }
+          if (!(Test-Path "$dllDir/MOZA_SDK.dll")) { throw "MOZA_SDK.dll was not produced in $dllDir." }
 
       - name: Package plugin
         shell: pwsh
         run: |
+          $dllDir = "build/bin/Release"
           New-Item -ItemType Directory -Force -Path package | Out-Null
-          Copy-Item "build/bin/moza_ats_blinker.dll" package/
-          Copy-Item "build/bin/MOZA_SDK.dll" package/
+          Copy-Item "$dllDir/moza_ats_blinker.dll" package/
+          Copy-Item "$dllDir/MOZA_SDK.dll" package/
           Copy-Item "README.md" package/
           Compress-Archive -Path package/* -DestinationPath ATS_MOZA_Blinker_Windows_x64.zip -Force
 
@@ -39,6 +41,6 @@ jobs:
         with:
           name: ATS_MOZA_Blinker_Windows_x64
           path: |
-            build/bin/moza_ats_blinker.dll
-            build/bin/MOZA_SDK.dll
+            build/bin/Release/moza_ats_blinker.dll
+            build/bin/Release/MOZA_SDK.dll
             ATS_MOZA_Blinker_Windows_x64.zip
